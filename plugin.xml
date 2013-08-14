@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
+    id="net.almostobsolete.CustomUrlScheme"
+    version="0.3.2">
+
+    <name>Custom URL Scheme</name>
+    
+    <description>
+      Use Custom URL Schemes in a PhoneGap application. You don't need
+      this plugin to do that but it handles the config changes which
+      is useful when you're using the new Cordova CLI tool and you
+      don't want to edit the contents of the platforms folder
+      directly.
+    </description>
+    
+    <license>MIT</license>
+    
+    
+    <engines>
+      <engine name="cordova" version=">=3.0.0" />
+    </engines>
+    
+    <!-- ios -->
+    <platform name="ios">
+      <preference name="URLSCHEME" />
+      
+        <config-file target="*-Info.plist" parent="CFBundleURLTypes">
+          <array>
+            <dict>
+              <key>CFBundleURLSchemes</key>
+              <array>
+                <string>$URLSCHEME</string>
+              </array>
+            </dict>
+          </array>
+        </config-file>
+
+    </platform>
+</plugin>
